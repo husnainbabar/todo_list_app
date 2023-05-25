@@ -185,4 +185,17 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    // config/app.php
+
+    // 'providers' => [
+    //     // Other service providers...
+    //     Livewire\LivewireServiceProvider::class,
+    // ],
+
+    // 'aliases' => [
+    //     // Other aliases...
+    //     'Livewire' => Livewire\Livewire::class,
+    // ],
+
+
 ];

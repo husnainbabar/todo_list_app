@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\Http\Livewire\Tasks\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/1', function () {
+    return view('livewire.tasks.index');
 });
 
-Route::view('user', 'user');
+// Route::livewire('task', 'task');
+Route::get('/tasks', App\Http\Livewire\Tasks\Index::class);
