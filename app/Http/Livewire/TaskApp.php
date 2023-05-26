@@ -13,14 +13,24 @@ class TaskApp extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $name, $status, $description, $task_id;
-    public $search = '';
 
+    public $showTooltip = false;
+
+    public function showTooltip()
+    {
+        $this->showTooltip = true;
+    }
+
+    public function hideTooltip()
+    {
+        $this->showTooltip = false;
+    }
     protected function rules()
     {
         return [
-            'name' => 'required|string|min:6',
-            'description' => ['required', 'string'],
-            //'status' => 'required|int',
+            'name' => 'required|unique:tasks|string|min:6',
+            'description' => ['string'],
+
         ];
     }
 

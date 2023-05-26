@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Index;
-use App\Http\Livewire\Create;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +15,4 @@ use App\Http\Livewire\Create;
 
 
 
-Route::get('taskapp', [App\Http\Controllers\TaskController::class, 'index']);
+Route::get('/', [App\Http\Controllers\TaskController::class, 'index']);

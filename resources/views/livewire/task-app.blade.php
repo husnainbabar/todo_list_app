@@ -11,8 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Task Application
-                            <input type="search" wire:model="search" class="form-control float-end mx-2"
-                                placeholder="Search..." style="width: 230px" />
+
                             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
                                 data-bs-target="#TaskModal">
                                 Add New Task
@@ -36,16 +35,28 @@
                                         <td>{{ $task->id }}</td>
                                         <td>{{ $task->name }}</td>
                                         <td>{{ $task->description }}</td>
+
+
                                         <td>
                                             @if ($task->status == 0)
                                                 <button type="button"
-                                                    wire:click="changeStatusToCompleted({{ $task->id }})"class="btn btn-warning">Pending</button>
+                                                    wire:click="changeStatusToCompleted({{ $task->id }})"
+                                                    wire:mouseover="showTooltip" wire:mouseout="hideTooltip"
+                                                    class="btn btn-warning"
+                                                    title="Change status to Completed">Pending</button>
                                             @elseif ($task->status == 1)
                                                 <button type="button"
                                                     wire:click="changeStatusToPending({{ $task->id }})"
-                                                    class="btn btn-success">Complete</button>
+                                                    wire:mouseover="showTooltip" wire:mouseout="hideTooltip"
+                                                    class="btn btn-success"
+                                                    title="Change status to Pending">Complete</button>
+                                            @endif
+
+                                            @if ($showTooltip)
+                                                <div class="tooltip">Change status</div>
                                             @endif
                                         </td>
+
                                         <td>
                                             <button type="button" data-bs-toggle="modal"
                                                 data-bs-target="#updateTaskModal"
