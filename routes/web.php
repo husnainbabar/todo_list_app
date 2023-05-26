@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Livewire\Tasks\Index;
-
+use App\Http\Livewire\Index;
+use App\Http\Livewire\Create;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,6 @@ use app\Http\Livewire\Tasks\Index;
 |
 */
 
-Route::get('/1', function () {
-    return view('livewire.tasks.index');
-});
 
-// Route::livewire('task', 'task');
-Route::get('/tasks', App\Http\Livewire\Tasks\Index::class);
+
+Route::get('taskapp', [App\Http\Controllers\TaskController::class, 'index']);
